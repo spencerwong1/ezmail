@@ -2,6 +2,12 @@
   text-align: center;
 }
 
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(33,33,33)
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -35,4 +41,23 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.fade-enter {
+  opacity: 0;
+}
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 300ms ease-in;
+}
+.fade-exit {
+  opacity: 1;
+}
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 300ms ease-out;
+}
+
+input[type="range"] {
+  accent-color: rgb(243,147,1);   /* Tailwind’s orange-500 */
 }

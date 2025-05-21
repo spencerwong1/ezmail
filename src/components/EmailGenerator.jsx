@@ -1,55 +1,79 @@
 /* global puter */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-export default function EmailGenerator() {
-  const [prompt, setPrompt] = useState('');
+export default function EmailGenerator({ aiPrompt, onBack }) {
   const [response, setResponse] = useState('');
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading]   = useState(false);
+  const [isHovering, setIsHovering] = useState(false);
 
-  const handleSubmit = async () => {
-    const trimmed = prompt.trim();
-    if (!trimmed) {
+  // This effect runs once when the component appears (or whenever aiPrompt changes)
+  useEffect(() => {
+    if (!aiPrompt?.trim()) {
       setResponse('Please enter a prompt.');
       return;
     }
 
-    setLoading(true);
-    setResponse('…thinking…');
+    const send = async () => {
+      setLoading(true);
+      setResponse('…thinking…');
+      try {
+        const res = await puter.ai.chat(aiPrompt.trim());
+        const text = typeof res === 'object'
+          ? res.message?.content ?? res.toString()
+          : res;
+        setResponse(text);
+      } catch (err) {
+        setResponse('Error: ' + err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-    try {
-      const res = await puter.ai.chat(trimmed);
-      // If res is an object, extract content or fallback to toString()
-      const text = typeof res === 'object'
-        ? res.message?.content ?? res.toString()
-        : res;
-      setResponse(text);
-    } catch (err) {
-      setResponse('Error: ' + err.message);
-    } finally {
-      setLoading(false);
-    }
-  };
+    send();
+  }, [aiPrompt]);  // re-run if aiPrompt ever changes
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen p-4 space-y-4">
-      <input
-        type="text"
-        className="w-full max-w-md p-2 border border-gray-300 rounded"
-        placeholder="Type your prompt here…"
-        value={prompt}
-        onChange={e => setPrompt(e.target.value)}
-        disabled={loading}
-      />
+    <div style={{
+      height: 'calc(100vh - 80px)',
+      width: '95%',
+      backgroundColor: 'rgb(33,33,33)',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'flex-start',
+      padding: '2rem',
+      color: 'white',
+    }}>
+
+
       <button
-        onClick={handleSubmit}
-        className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 disabled:opacity-50"
-        disabled={loading}
+        onClick={onBack}
+        style={{
+          marginTop: '10px',
+          backgroundColor: isHovering ? 'white' : 'transparent',
+          color: isHovering ? 'black' : 'white',
+          fontSize: '18px',
+          fontFamily: 'Inter',
+          borderRadius: '100px',
+          padding: '10px 20px',
+          height: '50px',
+          width: '210px',
+          borderColor: 'rgb(100,100,100)',
+          borderStyle: 'solid',
+          fontWeight: '700',
+          transform: isHovering ? 'scale(1.1)' : 'scale(1)',
+          boxShadow: isHovering ? '0 8px 20px rgba(0,0,0,0.3)' : 'none',
+          transition: 'transform 0.2s ease, box-shadow 0.2s ease',
+        }}
+        onMouseEnter={() => setIsHovering(true)}
+        onMouseLeave={() => setIsHovering(false)}
       >
-        {loading ? 'Sending…' : 'Send'}
+        GO BACK
       </button>
-      <div className="w-full max-w-2xl whitespace-pre-wrap text-center">
+
+      {loading && <p>Sending…</p>}
+      {!loading && <div style={{ whiteSpace: 'pre-wrap', marginTop: '1rem' }}>
         {response}
-      </div>
+      </div>}
     </div>
   );
 }

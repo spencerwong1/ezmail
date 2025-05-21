@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function TitlePage() {
+export default function TitlePage({ onContinue }) {
   const [isHovering, setIsHovering] = useState(false);
   const features = [
     'Draft new emails or reply to incoming messages in seconds',
@@ -13,10 +13,9 @@ export default function TitlePage() {
       style={{
         height: 'calc(100vh - 80px)',
         width: '95%',
-        backgroundColor: 'rgb(33,33,33)',
-        backgroundImage: "url('/hand.png')",   // <-- your image in public/
-        backgroundPosition: 'right',                // center it
-        backgroundRepeat: 'no-repeat',               // don’t tile
+        backgroundImage: "url('/hand.png')", 
+        backgroundPosition: 'right',  
+        backgroundRepeat: 'no-repeat',              
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
@@ -55,7 +54,7 @@ export default function TitlePage() {
       <button
         style={{
           marginTop: '10px',
-          backgroundColor: isHovering ? 'white': 'transparent' ,
+          backgroundColor: isHovering ? 'rgb(243,147,1)': 'transparent' ,
           color: isHovering ? 'black': 'white',
           fontSize: '18px',
           fontFamily: 'Inter',
@@ -72,7 +71,7 @@ export default function TitlePage() {
         }}
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}
-        // onClick={() => {}}
+        onClick={onContinue}
       >
         GET STARTED
       </button>
