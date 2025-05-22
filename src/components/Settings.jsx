@@ -4,10 +4,11 @@ export default function Settings({ onBack, onProceed }) {
   const [isContinueHovering, setContinueIsHovering] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
 
-  const [tone, setTone] = useState('Formal');
+  const [tone, setTone] = useState('Casual');
   const toneOptions = ['Casual', 'Formal', 'Apologetic', 'Sincere'];
 
   const [name, setName] = useState('');
+  const [sender, setSender] = useState('');
   const [length, setLength] = useState(50);
   const [topic, setTopic] = useState('');
 
@@ -26,6 +27,28 @@ export default function Settings({ onBack, onProceed }) {
     >
       <h1 style={{ fontSize: '2.5rem', margin: 0 }}>Settings</h1>
 
+      {/* Username input */}
+      <div style={{ textAlign: 'center', width: '100%', maxWidth: '400px' }}>
+        <p style={{ marginBottom: '0.5rem', fontFamily: 'Inter' }}>Sender:</p>
+        <input
+          type="text"
+          value={sender}
+          onChange={e => setSender(e.target.value)}
+          placeholder="E.g. Spencer, Secret Admirer"
+          style={{
+            width: '100%',
+            padding: '0.5rem 1rem',
+            border: '1px solid white',
+            borderRadius: '4px',
+            background: 'transparent',
+            color: 'white',
+            outline: 'none',
+            fontFamily: 'Inter',
+            height: '3rem',
+            fontSize: '1rem'
+          }}
+        />
+      </div>
 
       {/* Name input */}
       <div style={{ textAlign: 'center', width: '100%', maxWidth: '400px' }}>
@@ -59,6 +82,7 @@ export default function Settings({ onBack, onProceed }) {
               key={opt}
               onClick={() => setTone(opt)}
               style={{
+                fontSize: '15px',
                 padding: '0.5rem 1rem',
                 border: '1px solid white',
                 borderRadius: '4px',
@@ -118,17 +142,17 @@ export default function Settings({ onBack, onProceed }) {
             outline: 'none',
             fontFamily: 'Inter',
             fontSize: '1rem',
-            resize: 'none'
+            resize: 'none',
           }}
         />
       </div>
 
       {/* Navigation buttons */}
-      <div style={{ display: 'flex', gap: '1rem', marginTop: '2rem' }}>
+      <div style={{ display: 'flex', gap: '1rem' }}>
         <button
           onClick={onBack}
           style={{
-            marginTop: '10px',
+            marginTop: '0px',
             backgroundColor: isHovering ? 'rgb(243,147,1)' : 'transparent',
             color: isHovering ? 'black' : 'white',
             fontSize: '18px',
@@ -152,13 +176,21 @@ export default function Settings({ onBack, onProceed }) {
 
         <button
           onClick={() => {
-            const aiPrompt = `
-    please write me an email addressing ${name}, with a ${tone.toLowerCase()} tone, ` +
+            if (!name) {
+              alert("Please enter an addressee");
+            } else if (!topic) {
+              alert("Please enter a topic");
+            } else {
+              const aiPrompt = ` my name is ${sender},
+              please write me an email addressing ${name}, with a ${tone.toLowerCase()} tone, ` +
               `around ${length} words, covering: ${topic}`;
+            localStorage.setItem('aiPrompt', JSON.stringify(aiPrompt));
             onProceed(aiPrompt);
+            }
+            
           }}
           style={{
-            marginTop: '10px',
+            marginTop: '0px',
             backgroundColor: isContinueHovering ? 'rgb(243,147,1)' : 'transparent',
             color: isContinueHovering ? 'black' : 'white',
             fontSize: '18px',
