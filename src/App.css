@@ -61,3 +61,37 @@ html, body, #root {
 input[type="range"] {
   accent-color: rgb(243,147,1);   /* Tailwind’s orange-500 */
 }
+
+.title-page-container {
+  align-items: center;
+  justify-content: flex-start;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.background-image {
+  background-position: right;
+}
+
+
+@media screen and (max-width: 700px) {
+  .title-page-container {
+    flex-direction: column;
+  }
+  .background-image {
+   background-position: center center;
+  }
+} 
+
+.response-text {
+  /* allow selection on all platforms */
+  user-select: text;          /* standard */
+  -webkit-user-select: text;  /* Safari/Chrome */
+  -moz-user-select: text;     /* Firefox */
+  -ms-user-select: text;      /* IE/Edge */
+
+  /* allow the iOS callout on long-press */
+  -webkit-touch-callout: text;
+}

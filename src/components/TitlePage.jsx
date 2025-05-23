@@ -1,28 +1,24 @@
 import React, { useState } from 'react';
+const PUBLIC = process.env.PUBLIC_URL;
 
 export default function TitlePage({ onContinue }) {
   const [isHovering, setIsHovering] = useState(false);
   const features = [
-    'Draft new emails or reply to incoming messages in seconds',
-    'Adjust tone on the fly (formal, friendly, persuasive, etc.)',
-    'Translate your message into any supported language',
+    'Draft new emails in seconds',
+    'Adjust tone on the fly (Formal, Casual, Sincere, etc.)',
+    'Directly edit selected text',
     'Copy-paste the generated text directly into your inbox'
   ];
   return (
     <div
+      className="title-page-container"
       style={{
         height: 'calc(100vh - 80px)',
-        width: '95%',
-        backgroundImage: "url('/hand.png')", 
-        backgroundPosition: 'right',  
-        backgroundRepeat: 'no-repeat',              
-        display: 'flex',
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'flex-start',
+        width: '90%',
         paddingLeft: '5%',
       }}
     >
+      
       <div style={{
         paddingBottom: '50px',
       }}>
@@ -36,7 +32,7 @@ export default function TitlePage({ onContinue }) {
       }}>
         EZMAIL
       </h1>
-
+      
       <div style={{ color: 'white', fontFamily: 'Inter', maxWidth: '600px', lineHeight: 1.6 }}>
       <p>
         EZMail is an AI-powered email assistant built on the OpenAI API. It lets you:
@@ -47,10 +43,11 @@ export default function TitlePage({ onContinue }) {
         ))}
       </ul>
       <p style={{ marginTop: '1rem' }}>
-        With EZMail, you’ll compose professional, on-brand emails effortlessly—no writer’s block required. (even this is written by chatGPT!)
+        With EZMail, you’ll compose professional, on-brand emails effortlessly—no writer’s block required.
       </p>
+      
     </div>
-
+        
       <button
         style={{
           marginTop: '10px',
@@ -75,7 +72,19 @@ export default function TitlePage({ onContinue }) {
       >
         GET STARTED
       </button>
+      
       </div>
+        <div
+          className={'background-image'}
+          style={{
+            backgroundSize: 'contain',
+            height: 'calc(100vh - 80px)',
+            width: '95%',
+            backgroundImage: `url(${PUBLIC}/hand.png)`,   // note the backticks!
+            backgroundRepeat: 'no-repeat',
+            alignItems: 'center',
+          }}
+        />
     </div>
   );
 }

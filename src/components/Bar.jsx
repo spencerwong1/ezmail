@@ -29,6 +29,7 @@ export default function Bar() {
       <div />
 
       <button
+        className="profile-button"
         style={buttonStyle}
         onClick={() => {
           window.location.href = 'https://spencerwong1.github.io/';

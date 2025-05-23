@@ -176,7 +176,9 @@ export default function Settings({ onBack, onProceed }) {
 
         <button
           onClick={() => {
-            if (!name) {
+            if (!sender) {
+              alert("Please enter your name");
+            } else if (!name) {
               alert("Please enter an addressee");
             } else if (!topic) {
               alert("Please enter a topic");

@@ -24,7 +24,7 @@ export default function EmailGenerator({ aiPrompt, onBack }) {
       setLoading(true);
       setResponse('…thinking…');
       try {
-        const res = await puter.ai.chat(aiPrompt.trim());
+        const res = await puter.ai.chat(aiPrompt.trim(), { model: "gpt-4.1" });
         const text = typeof res === 'object'
           ? res.message?.content ?? res.toString()
           : res;
@@ -119,7 +119,8 @@ export default function EmailGenerator({ aiPrompt, onBack }) {
           }}
         >
           {loading && <p>Thinking...</p>}
-          {!loading && <div style={{ whiteSpace: 'pre-wrap', marginTop: '1rem' }}>
+          {!loading && <div className="response-text"
+          style={{ whiteSpace: 'pre-wrap', marginTop: '1rem' }}>
             {response}
           </div>}
         </div>
