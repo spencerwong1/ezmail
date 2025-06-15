@@ -90,9 +90,10 @@ export default function EmailGenerator({ aiPrompt, onBack }) {
       }}
     >
 
-      <h1 style={{ marginBottom: '0px', marginTop: '-80px', fontSize: '2.5rem'}}>EZMAIL</h1>
+      <h1 style={{ marginBottom: '0px', marginTop: '-0', fontSize: '2.5rem'}}>EZMAIL</h1>
       <p
         style={{
+          paddingLeft: '20px',
           color: 'rgb(243,147,1)',
           fontFamily: 'Inter',
           fontSize: '1.3rem',
@@ -103,9 +104,9 @@ export default function EmailGenerator({ aiPrompt, onBack }) {
 
       <div style={{width: '100%', maxWidth: '60vw', display: 'flex'}}>
         <div
+          className='output'
           style={{
             width: '100%',
-            height: '60vh',
             padding: '1rem',
             border: '1px solid white',
             borderRadius: '4px',
@@ -184,16 +185,15 @@ export default function EmailGenerator({ aiPrompt, onBack }) {
           localStorage.removeItem('aiPrompt');
           onBack();
         }}
+        className='btn'
         style={{
           marginTop: '10px',
           backgroundColor: isHovering ? 'rgb(243,147,1)' : 'transparent',
           color: isHovering ? 'black' : 'white',
-          fontSize: '18px',
           fontFamily: 'Inter',
           borderRadius: '100px',
           padding: '10px 20px',
           height: '50px',
-          width: '210px',
           borderColor: 'rgb(100,100,100)',
           borderStyle: 'solid',
           fontWeight: '700',
@@ -212,16 +212,15 @@ export default function EmailGenerator({ aiPrompt, onBack }) {
         onClick={() => {
           handleEditClick()
         }}
+        className='btn'
         style={{
           marginTop: '10px',
           backgroundColor: isEditHovering ? 'rgb(243,147,1)' : 'rgb(243,147,1)',
           color: isEditHovering ? 'black' : 'white',
-          fontSize: '18px',
           fontFamily: 'Inter',
           borderRadius: '100px',
           padding: '10px 20px',
           height: '50px',
-          width: '210px',
           borderColor: 'rgb(100,100,100)',
           borderStyle: 'solid',
           fontWeight: '700',
@@ -246,16 +245,15 @@ export default function EmailGenerator({ aiPrompt, onBack }) {
               alert('Copy failed: ' + err);
             });
         }}
+        className='btn'
         style={{
           marginTop: '10px',
           backgroundColor: 'rgb(0, 163, 108)',
           color: isCopyHovering ? 'black' : 'white',
-          fontSize: '18px',
           fontFamily: 'Inter',
           borderRadius: '100px',
           padding: '10px 20px',
           height: '50px',
-          width: '210px',
           borderColor: 'rgb(100,100,100)',
           borderStyle: 'solid',
           fontWeight: '700',

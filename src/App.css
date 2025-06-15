@@ -85,6 +85,39 @@ input[type="range"] {
   }
 } 
 
+
+.name {
+  width: 100%;
+}
+.btn {
+  height: 50px;
+  width: 210px;
+  margin-bottom: 30px;
+  font-size: 18px,
+}
+.input {
+  height: 6rem;
+}
+.output {
+  height: 60vh;
+}
+
+@media screen and (max-width: 700px) {
+  .name {
+    width: 80%;
+  }
+  .btn {
+    width: 120px;
+    font-size: 15px,
+  }
+  .input {
+    height: 2rem;
+  }
+  .output {
+    height: 50vh;
+  }
+} 
+
 .response-text {
   /* allow selection on all platforms */
   user-select: text;          /* standard */

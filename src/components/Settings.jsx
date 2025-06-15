@@ -31,12 +31,12 @@ export default function Settings({ onBack, onProceed }) {
       <div style={{ textAlign: 'center', width: '100%', maxWidth: '400px' }}>
         <p style={{ marginBottom: '0.5rem', fontFamily: 'Inter' }}>Sender:</p>
         <input
+          className="name"
           type="text"
           value={sender}
           onChange={e => setSender(e.target.value)}
           placeholder="E.g. Spencer, Secret Admirer"
           style={{
-            width: '100%',
             padding: '0.5rem 1rem',
             border: '1px solid white',
             borderRadius: '4px',
@@ -54,12 +54,12 @@ export default function Settings({ onBack, onProceed }) {
       <div style={{ textAlign: 'center', width: '100%', maxWidth: '400px' }}>
         <p style={{ marginBottom: '0.5rem', fontFamily: 'Inter' }}>Addressee:</p>
         <input
+          className="name"
           type="text"
           value={name}
           onChange={e => setName(e.target.value)}
           placeholder="E.g. Hiring Team, Mr Andrew"
           style={{
-            width: '100%',
             padding: '0.5rem 1rem',
             border: '1px solid white',
             borderRadius: '4px',
@@ -128,12 +128,12 @@ export default function Settings({ onBack, onProceed }) {
           What is this email about?
         </p>
         <textarea
+          className="name-input"
           value={topic}
           onChange={e => setTopic(e.target.value)}
           placeholder="E.g. Project deadline, thank you note…"
           style={{
-            width: '100%',
-            height: '6rem',
+            
             padding: '1rem',
             border: '1px solid white',
             borderRadius: '4px',
@@ -150,17 +150,16 @@ export default function Settings({ onBack, onProceed }) {
       {/* Navigation buttons */}
       <div style={{ display: 'flex', gap: '1rem' }}>
         <button
+          className='btn'
           onClick={onBack}
           style={{
             marginTop: '0px',
             backgroundColor: isHovering ? 'rgb(243,147,1)' : 'transparent',
             color: isHovering ? 'black' : 'white',
-            fontSize: '18px',
             fontFamily: 'Inter',
             borderRadius: '100px',
             padding: '10px 20px',
             height: '50px',
-            width: '210px',
             borderColor: 'rgb(100,100,100)',
             borderStyle: 'solid',
             fontWeight: '700',
@@ -191,16 +190,14 @@ export default function Settings({ onBack, onProceed }) {
             }
             
           }}
+          className='btn'
           style={{
             marginTop: '0px',
             backgroundColor: isContinueHovering ? 'rgb(243,147,1)' : 'transparent',
             color: isContinueHovering ? 'black' : 'white',
-            fontSize: '18px',
             fontFamily: 'Inter',
             borderRadius: '100px',
             padding: '10px 20px',
-            height: '50px',
-            width: '210px',
             borderColor: 'rgb(100,100,100)',
             borderStyle: 'solid',
             fontWeight: '700',
