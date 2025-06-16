@@ -22,7 +22,7 @@ export default function Settings({ onBack, onProceed }) {
         height: 'calc(100vh - 80px)',
         color: 'white',
         padding: '0px',
-        gap: '1.5rem',
+        gap: '0.73rem',
       }}
     >
       <h1 style={{ fontSize: '2.5rem', margin: 0 }}>Settings</h1>
@@ -128,12 +128,11 @@ export default function Settings({ onBack, onProceed }) {
           What is this email about?
         </p>
         <textarea
-          className="name-input"
+          className="name input"
           value={topic}
           onChange={e => setTopic(e.target.value)}
           placeholder="E.g. Project deadline, thank you note…"
           style={{
-            
             padding: '1rem',
             border: '1px solid white',
             borderRadius: '4px',

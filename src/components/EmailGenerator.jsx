@@ -127,7 +127,7 @@ export default function EmailGenerator({ aiPrompt, onBack }) {
         </div>
         {/* Editor panel for highlighted text */}
       {showEditor && (
-        <div style={{ width: '30vw', padding: '1rem', border: '1px solid white', borderRadius: '4px' }}>
+        <div className='output' style={{ width: '30vw', padding: '1rem', border: '1px solid white', borderRadius: '4px' }}>
           <p style={{ marginBottom: '0.5rem', fontFamily: 'Inter' }}>Editing Line:</p>
           <textarea
             readOnly
@@ -141,11 +141,11 @@ export default function EmailGenerator({ aiPrompt, onBack }) {
             value={editInstruction}
             onChange={e => setEditInstruction(e.target.value)}
             placeholder="e.g.Make it more concise"
-            style={{ resize: 'none', height: '15rem', width: 'calc(100% - 2.5rem)', padding: '1rem', background: 'transparent', color: 'white', border: '1px solid white', borderRadius: '4px', fontFamily: 'Inter', fontSize: '1rem' }}
+            style={{ resize: 'none', height: '10rem', width: 'calc(100% - 2.5rem)', padding: '1rem', background: 'transparent', color: 'white', border: '1px solid white', borderRadius: '4px', fontFamily: 'Inter', fontSize: '1rem' }}
           />
 
 
-        <div style={{ marginTop: '30px', height: '30%', display: 'flex', alignContent: 'center', justifyContent: 'center'}}>
+        <div style={{ marginTop: '15px', height: '30%', display: 'flex', alignContent: 'center', justifyContent: 'center'}}>
           <button
         onClick={() => {
           handleEditSubmission()
@@ -264,7 +264,7 @@ export default function EmailGenerator({ aiPrompt, onBack }) {
         onMouseEnter={() => setIsCopyHovering(true)}
         onMouseLeave={() => setIsCopyHovering(false)}
       >
-        {copy ? 'EMAIL COPIED' : 'COPY'}
+        {copy ? 'COPIED' : 'COPY'}
       </button>
     </div>
     </div>
