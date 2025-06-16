@@ -92,17 +92,17 @@ export default function EmailGenerator({ aiPrompt, onBack }) {
 
       <h1 style={{ marginBottom: '0px', marginTop: '-0', fontSize: '2.5rem'}}>EZMAIL</h1>
       <p
+        className='instructions'
         style={{
           paddingLeft: '20px',
           color: 'rgb(243,147,1)',
           fontFamily: 'Inter',
-          fontSize: '1.3rem',
         }}
       >
         Highlight the text you’d like to change, then click “Edit” to refine it.
       </p>
 
-      <div style={{width: '100%', maxWidth: '60vw', display: 'flex'}}>
+      <div className='box' style={{width: '100%', display: 'flex'}}>
         <div
           className='output'
           style={{
@@ -137,40 +137,41 @@ export default function EmailGenerator({ aiPrompt, onBack }) {
 
           <p style={{ margin: '1rem 0 0.5rem', fontFamily: 'Inter' }}>What change to make?</p>
           <textarea
+            className='edit'
             type="text"
             value={editInstruction}
             onChange={e => setEditInstruction(e.target.value)}
             placeholder="e.g.Make it more concise"
-            style={{ resize: 'none', height: '10rem', width: 'calc(100% - 2.5rem)', padding: '1rem', background: 'transparent', color: 'white', border: '1px solid white', borderRadius: '4px', fontFamily: 'Inter', fontSize: '1rem' }}
+            style={{ resize: 'none', width: 'calc(100% - 2.5rem)', padding: '1rem', background: 'transparent', color: 'white', border: '1px solid white', borderRadius: '4px', fontFamily: 'Inter', fontSize: '1rem' }}
           />
 
 
         <div style={{ marginTop: '15px', height: '30%', display: 'flex', alignContent: 'center', justifyContent: 'center'}}>
           <button
-        onClick={() => {
-          handleEditSubmission()
-        }}
-        style={{
-          backgroundColor: 'rgb(243,147,1)',
-          color: isEditHovering1 ? 'black' : 'white',
-          fontSize: '18px',
-          fontFamily: 'Inter',
-          borderRadius: '100px',
-          padding: '10px 20px',
-          height: '50px',
-          width: '210px',
-          borderColor: 'rgb(100,100,100)',
-          borderStyle: 'solid',
-          fontWeight: '700',
-          transform: isEditHovering1 ? 'scale(1.1)' : 'scale(1)',
-          boxShadow: isEditHovering1 ? '0 8px 20px rgba(0,0,0,0.3)' : 'none',
-          transition: 'transform 0.2s ease, box-shadow 0.2s ease',
-        }}
-        onMouseEnter={() => setIsEditHovering1(true)}
-        onMouseLeave={() => setIsEditHovering1(false)}
-      >
-        SUBMIT
-      </button>
+            onClick={() => {
+              handleEditSubmission()
+            }}
+            className='btn'
+            style={{
+              backgroundColor: 'rgb(243,147,1)',
+              color: isEditHovering1 ? 'black' : 'white',
+              fontFamily: 'Inter',
+              borderRadius: '100px',
+              padding: '10px 20px',
+              height: '50px',
+              width: '210px',
+              borderColor: 'rgb(100,100,100)',
+              borderStyle: 'solid',
+              fontWeight: '700',
+              transform: isEditHovering1 ? 'scale(1.1)' : 'scale(1)',
+              boxShadow: isEditHovering1 ? '0 8px 20px rgba(0,0,0,0.3)' : 'none',
+              transition: 'transform 0.2s ease, box-shadow 0.2s ease',
+            }}
+            onMouseEnter={() => setIsEditHovering1(true)}
+            onMouseLeave={() => setIsEditHovering1(false)}
+          >
+            SUBMIT
+          </button>
       </div>
 
 

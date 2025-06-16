@@ -24,7 +24,8 @@ export default function Bar() {
       height: '80px',
       justifyContent: 'space-between',
       alignItems: 'center',
-      padding: '0 30px'
+      padding: '0 30px',
+      fontSize: '20px',
     }}>
       <div />
 

@@ -99,7 +99,19 @@ input[type="range"] {
   height: 6rem;
 }
 .output {
-  height: 60vh;
+  height: 53vh;
+}
+
+.box {
+  max-width: 60vw;
+}
+
+.edit {
+  height: 10rem;
+}
+
+.instructions {
+  font-size: 1.3rem,
 }
 
 @media screen and (max-width: 700px) {
@@ -116,7 +128,28 @@ input[type="range"] {
   .output {
     height: 50vh;
   }
+  .box {
+    max-width: 90vw;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .edit {
+    height: 2rem;
+  }
+  .btn {
+    width: 100px;
+    font-size: 10px,
+  }
+  .output {
+    height: 50vh;
+  }
+  .instructions {
+    margin: 0px;
+    font-size: 0.03rem,
+  }
 } 
+
 
 .response-text {
   /* allow selection on all platforms */
