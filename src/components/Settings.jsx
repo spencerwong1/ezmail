@@ -31,7 +31,7 @@ export default function Settings({ onBack, onProceed }) {
       <div style={{ textAlign: 'center', width: '100%', maxWidth: '400px' }}>
         <p style={{ marginBottom: '0.5rem', fontFamily: 'Inter' }}>Sender:</p>
         <input
-          className="name"
+          className="input"
           type="text"
           value={sender}
           onChange={e => setSender(e.target.value)}
@@ -54,7 +54,7 @@ export default function Settings({ onBack, onProceed }) {
       <div style={{ textAlign: 'center', width: '100%', maxWidth: '400px' }}>
         <p style={{ marginBottom: '0.5rem', fontFamily: 'Inter' }}>Addressee:</p>
         <input
-          className="name"
+          className="input"
           type="text"
           value={name}
           onChange={e => setName(e.target.value)}

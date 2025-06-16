@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-const PUBLIC = process.env.PUBLIC_URL;
+import demoVideo from '../assets/demo.mp4';
+import image from '../assets/hand.png';
 
 export default function TitlePage({ onContinue }) {
   const [isHovering, setIsHovering] = useState(false);
@@ -22,15 +23,29 @@ export default function TitlePage({ onContinue }) {
       <div style={{
         paddingBottom: '50px',
       }}>
-      <h1 style={{
-        color: 'white',
-        fontSize: '80px',
-        fontFamily: 'Inter',
-        marginBottom: '0px',
-        fontWeight: '4000',
-        letterSpacing: '0.05em',
-      }}>
+      <h1
+        className="ezmail"
+        style={{
+          color: 'white',
+          fontFamily: 'Inter',
+          marginBottom: '0px',
+          fontWeight: '4000',
+          letterSpacing: '0.05em',
+          display: 'inline-flex',
+          alignItems: 'center',
+        }}
+      >
         EZMAIL
+        <img
+          src={image}
+          alt="Logo"
+          style={{
+            width: '100px',
+            height: '100px',
+            marginLeft: '12px',
+            marginBottom: '15px',
+          }}
+        />
       </h1>
       
       <div style={{ color: 'white', fontFamily: 'Inter', maxWidth: '600px', lineHeight: 1.6 }}>
@@ -74,17 +89,9 @@ export default function TitlePage({ onContinue }) {
       </button>
       
       </div>
-        <div
-          className={'background-image'}
-          style={{
-            backgroundSize: 'contain',
-            height: 'calc(100vh - 80px)',
-            width: '95%',
-            backgroundImage: `url(${PUBLIC}/hand.png)`,   // note the backticks!
-            backgroundRepeat: 'no-repeat',
-            alignItems: 'center',
-          }}
-        />
+        <video className="video" autoPlay muted loop playsInline>
+          <source src={demoVideo} type="video/mp4" />
+        </video>
     </div>
   );
 }

@@ -75,6 +75,23 @@ input[type="range"] {
   background-position: right;
 }
 
+.video {
+    width: 50vw;
+    height: auto;
+    margin: 50px;
+    
+    /* Rounded top edges like a MacBook */
+    border: 8px solid #444;
+    border-bottom: 12px solid #2b2b2b;
+    border-radius: 16px 16px 8px 8px; /* top-left, top-right, bottom-right, bottom-left */
+
+    background-color: transparent;
+    box-shadow: 
+        0 15px 20px rgba(0, 0, 0, 0.3), 
+        0 25px 55px rgba(0, 0, 0, 0.25),
+        inset 0 2px 4px rgba(255, 255, 255, 0.05); /* slight inner shine */
+}
+
 
 @media screen and (max-width: 700px) {
   .title-page-container {
@@ -86,9 +103,7 @@ input[type="range"] {
 } 
 
 
-.name {
-  width: 100%;
-}
+
 .btn {
   height: 50px;
   width: 210px;
@@ -96,6 +111,7 @@ input[type="range"] {
   font-size: 18px,
 }
 .input {
+  width: 90%;
   height: 6rem;
 }
 .output {
@@ -112,6 +128,21 @@ input[type="range"] {
 
 .instructions {
   font-size: 1.3rem,
+}
+
+.ezmail {
+  font-size: 80px;
+}
+
+@media screen and (max-width: 1000px) {
+  .title-page-container {
+    flex-direction: column;
+    width: 100%;
+  }
+  .video {
+    width: 90%;
+    margin: 0px;
+  }
 }
 
 @media screen and (max-width: 700px) {
@@ -147,6 +178,9 @@ input[type="range"] {
   .instructions {
     margin: 0px;
     font-size: 0.03rem,
+  }
+  .ezmail {
+    font-size: 50px;
   }
 } 
 
