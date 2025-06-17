@@ -1,15 +1,17 @@
 {
   "files": {
-    "main.css": "/ezmail/static/css/main.3c525fac.css",
-    "main.js": "/ezmail/static/js/main.7a28fdc3.js",
+    "main.css": "/ezmail/static/css/main.900a27d1.css",
+    "main.js": "/ezmail/static/js/main.80796c3c.js",
     "static/js/453.fea73a4f.chunk.js": "/ezmail/static/js/453.fea73a4f.chunk.js",
+    "static/media/demo.mp4": "/ezmail/static/media/demo.108570eadcb224d99a13.mp4",
+    "static/media/hand.png": "/ezmail/static/media/hand.58897ce929d1061a01a9.png",
     "index.html": "/ezmail/index.html",
-    "main.3c525fac.css.map": "/ezmail/static/css/main.3c525fac.css.map",
-    "main.7a28fdc3.js.map": "/ezmail/static/js/main.7a28fdc3.js.map",
+    "main.900a27d1.css.map": "/ezmail/static/css/main.900a27d1.css.map",
+    "main.80796c3c.js.map": "/ezmail/static/js/main.80796c3c.js.map",
     "453.fea73a4f.chunk.js.map": "/ezmail/static/js/453.fea73a4f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3c525fac.css",
-    "static/js/main.7a28fdc3.js"
+    "static/css/main.900a27d1.css",
+    "static/js/main.80796c3c.js"
   ]
 }
